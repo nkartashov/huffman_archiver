@@ -62,6 +62,19 @@ int main(int argc, char** argv) {
     ifstream* in = new ifstream(input_file_path.c_str(), ios::in | ios::binary);
     ofstream* out = new ofstream(output_file_path.c_str(), ios::out | ios::binary);
     
+    if (!in->is_open())
+    {
+        cout << "Unable to open input file " << input_file_path << endl;
+        return 1;
+    }
+    
+    if (!out->is_open())
+    {
+        cout << "Unable to open output file " << output_file_path << endl;
+        return 1;
+    }
+
+    
     switch (work_mode)
     {
         case kCompressionMode:
