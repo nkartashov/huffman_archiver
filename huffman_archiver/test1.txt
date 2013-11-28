@@ -1,0 +1,1414 @@
+//
+//  main.cpp
+//  Yacontest_ProblemD
+//
+//  Created by Nikita Kartashov on 19/10/2013.
+//  Copyright (c) 2013 Nikita Kartashov. All rights reserved.
+//
+
+#include <iostream>
+#include <cmath>
+#include <list>
+#include <vector>
+#include <utility>
+#include <cstdlib>
+
+using std::cout;
+using std::cin;
+using std::endl;
+using std::abs;
+using std::list;
+using std::pair;
+using std::vector;
+using std::labs;
+
+
+class sq
+{
+public:
+    sq(long _x, long _y, int _num) : x(_x), y(_y), number(_num) {}
+    
+    long x;
+    long y;
+    int number;
+};
+
+int main(int argc, const char * argv[])
+{
+    long m = 0, n = 0;
+    cin >> m;
+    cin >> n;
+    
+    vector<long> line_sums(m, 0);
+    vector<long> column_sums(n, 0);
+    long long total_sum = 0;
+    vector<sq> items;
+
+    
+    int buf;
+    for (long i = 0; i < m; i++)
+    {
+        for (long j = 0; j < n; j++)
+        {
+            cin >> buf;
+            if (buf != 0)
+            {
+                sq newItem(i, j, buf);
+                items.push_back(newItem);
+                line_sums[i] += buf;
+                column_sums[j] += buf;
+                total_sum += buf;
+            }
+        }
+    }
+    
+    long st_l = 0;
+    long st_c = 0;
+    long long lbuf = 0;
+    for (long i = 0; i < line_sums.size(); i++)
+    {
+        lbuf += line_sums[i];
+        if (lbuf >= total_sum - lbuf)
+        {
+            st_l = i;
+            break;
+        }
+    }
+    
+    lbuf = 0;
+    for (long i = 0; i < column_sums.size(); i++)
+    {
+        lbuf += column_sums[i];
+        if (lbuf >= total_sum - lbuf)
+        {
+            st_c = i;
+            break;
+        }
+    }
+
+    long long steps = 0;
+    for (vector<sq>::iterator it = items.begin(); it != items.end(); it++)
+    {
+        steps += (labs(it->x - st_l) + labs(it->y - st_c) + 1) * 2 * it->number;
+    }
+    
+    cout << st_l + 1 << " " << st_c + 1 << endl;
+    
+    cout << steps;
+    
+    return 0;
+}
+
+//
+//  main.cpp
+//  Yacontest_ProblemD
+//
+//  Created by Nikita Kartashov on 19/10/2013.
+//  Copyright (c) 2013 Nikita Kartashov. All rights reserved.
+//
+
+#include <iostream>
+#include <cmath>
+#include <list>
+#include <vector>
+#include <utility>
+#include <cstdlib>
+
+using std::cout;
+using std::cin;
+using std::endl;
+using std::abs;
+using std::list;
+using std::pair;
+using std::vector;
+using std::labs;
+
+
+class sq
+{
+public:
+    sq(long _x, long _y, int _num) : x(_x), y(_y), number(_num) {}
+    
+    long x;
+    long y;
+    int number;
+};
+
+int main(int argc, const char * argv[])
+{
+    long m = 0, n = 0;
+    cin >> m;
+    cin >> n;
+    
+    vector<long> line_sums(m, 0);
+    vector<long> column_sums(n, 0);
+    long long total_sum = 0;
+    vector<sq> items;
+
+    
+    int buf;
+    for (long i = 0; i < m; i++)
+    {
+        for (long j = 0; j < n; j++)
+        {
+            cin >> buf;
+            if (buf != 0)
+            {
+                sq newItem(i, j, buf);
+                items.push_back(newItem);
+                line_sums[i] += buf;
+                column_sums[j] += buf;
+                total_sum += buf;
+            }
+        }
+    }
+    
+    long st_l = 0;
+    long st_c = 0;
+    long long lbuf = 0;
+    for (long i = 0; i < line_sums.size(); i++)
+    {
+        lbuf += line_sums[i];
+        if (lbuf >= total_sum - lbuf)
+        {
+            st_l = i;
+            break;
+        }
+    }
+    
+    lbuf = 0;
+    for (long i = 0; i < column_sums.size(); i++)
+    {
+        lbuf += column_sums[i];
+        if (lbuf >= total_sum - lbuf)
+        {
+            st_c = i;
+            break;
+        }
+    }
+
+    long long steps = 0;
+    for (vector<sq>::iterator it = items.begin(); it != items.end(); it++)
+    {
+        steps += (labs(it->x - st_l) + labs(it->y - st_c) + 1) * 2 * it->number;
+    }
+    
+    cout << st_l + 1 << " " << st_c + 1 << endl;
+    
+    cout << steps;
+    
+    return 0;
+}
+
+//
+//  main.cpp
+//  Yacontest_ProblemD
+//
+//  Created by Nikita Kartashov on 19/10/2013.
+//  Copyright (c) 2013 Nikita Kartashov. All rights reserved.
+//
+
+#include <iostream>
+#include <cmath>
+#include <list>
+#include <vector>
+#include <utility>
+#include <cstdlib>
+
+using std::cout;
+using std::cin;
+using std::endl;
+using std::abs;
+using std::list;
+using std::pair;
+using std::vector;
+using std::labs;
+
+
+class sq
+{
+public:
+    sq(long _x, long _y, int _num) : x(_x), y(_y), number(_num) {}
+    
+    long x;
+    long y;
+    int number;
+};
+
+int main(int argc, const char * argv[])
+{
+    long m = 0, n = 0;
+    cin >> m;
+    cin >> n;
+    
+    vector<long> line_sums(m, 0);
+    vector<long> column_sums(n, 0);
+    long long total_sum = 0;
+    vector<sq> items;
+
+    
+    int buf;
+    for (long i = 0; i < m; i++)
+    {
+        for (long j = 0; j < n; j++)
+        {
+            cin >> buf;
+            if (buf != 0)
+            {
+                sq newItem(i, j, buf);
+                items.push_back(newItem);
+                line_sums[i] += buf;
+                column_sums[j] += buf;
+                total_sum += buf;
+            }
+        }
+    }
+    
+    long st_l = 0;
+    long st_c = 0;
+    long long lbuf = 0;
+    for (long i = 0; i < line_sums.size(); i++)
+    {
+        lbuf += line_sums[i];
+        if (lbuf >= total_sum - lbuf)
+        {
+            st_l = i;
+            break;
+        }
+    }
+    
+    lbuf = 0;
+    for (long i = 0; i < column_sums.size(); i++)
+    {
+        lbuf += column_sums[i];
+        if (lbuf >= total_sum - lbuf)
+        {
+            st_c = i;
+            break;
+        }
+    }
+
+    long long steps = 0;
+    for (vector<sq>::iterator it = items.begin(); it != items.end(); it++)
+    {
+        steps += (labs(it->x - st_l) + labs(it->y - st_c) + 1) * 2 * it->number;
+    }
+    
+    cout << st_l + 1 << " " << st_c + 1 << endl;
+    
+    cout << steps;
+    
+    return 0;
+}
+
+//
+//  main.cpp
+//  Yacontest_ProblemD
+//
+//  Created by Nikita Kartashov on 19/10/2013.
+//  Copyright (c) 2013 Nikita Kartashov. All rights reserved.
+//
+
+#include <iostream>
+#include <cmath>
+#include <list>
+#include <vector>
+#include <utility>
+#include <cstdlib>
+
+using std::cout;
+using std::cin;
+using std::endl;
+using std::abs;
+using std::list;
+using std::pair;
+using std::vector;
+using std::labs;
+
+
+class sq
+{
+public:
+    sq(long _x, long _y, int _num) : x(_x), y(_y), number(_num) {}
+    
+    long x;
+    long y;
+    int number;
+};
+
+int main(int argc, const char * argv[])
+{
+    long m = 0, n = 0;
+    cin >> m;
+    cin >> n;
+    
+    vector<long> line_sums(m, 0);
+    vector<long> column_sums(n, 0);
+    long long total_sum = 0;
+    vector<sq> items;
+
+    
+    int buf;
+    for (long i = 0; i < m; i++)
+    {
+        for (long j = 0; j < n; j++)
+        {
+            cin >> buf;
+            if (buf != 0)
+            {
+                sq newItem(i, j, buf);
+                items.push_back(newItem);
+                line_sums[i] += buf;
+                column_sums[j] += buf;
+                total_sum += buf;
+            }
+        }
+    }
+    
+    long st_l = 0;
+    long st_c = 0;
+    long long lbuf = 0;
+    for (long i = 0; i < line_sums.size(); i++)
+    {
+        lbuf += line_sums[i];
+        if (lbuf >= total_sum - lbuf)
+        {
+            st_l = i;
+            break;
+        }
+    }
+    
+    lbuf = 0;
+    for (long i = 0; i < column_sums.size(); i++)
+    {
+        lbuf += column_sums[i];
+        if (lbuf >= total_sum - lbuf)
+        {
+            st_c = i;
+            break;
+        }
+    }
+
+    long long steps = 0;
+    for (vector<sq>::iterator it = items.begin(); it != items.end(); it++)
+    {
+        steps += (labs(it->x - st_l) + labs(it->y - st_c) + 1) * 2 * it->number;
+    }
+    
+    cout << st_l + 1 << " " << st_c + 1 << endl;
+    
+    cout << steps;
+    
+    return 0;
+}
+
+//
+//  main.cpp
+//  Yacontest_ProblemD
+//
+//  Created by Nikita Kartashov on 19/10/2013.
+//  Copyright (c) 2013 Nikita Kartashov. All rights reserved.
+//
+
+#include <iostream>
+#include <cmath>
+#include <list>
+#include <vector>
+#include <utility>
+#include <cstdlib>
+
+using std::cout;
+using std::cin;
+using std::endl;
+using std::abs;
+using std::list;
+using std::pair;
+using std::vector;
+using std::labs;
+
+
+class sq
+{
+public:
+    sq(long _x, long _y, int _num) : x(_x), y(_y), number(_num) {}
+    
+    long x;
+    long y;
+    int number;
+};
+
+int main(int argc, const char * argv[])
+{
+    long m = 0, n = 0;
+    cin >> m;
+    cin >> n;
+    
+    vector<long> line_sums(m, 0);
+    vector<long> column_sums(n, 0);
+    long long total_sum = 0;
+    vector<sq> items;
+
+    
+    int buf;
+    for (long i = 0; i < m; i++)
+    {
+        for (long j = 0; j < n; j++)
+        {
+            cin >> buf;
+            if (buf != 0)
+            {
+                sq newItem(i, j, buf);
+                items.push_back(newItem);
+                line_sums[i] += buf;
+                column_sums[j] += buf;
+                total_sum += buf;
+            }
+        }
+    }
+    
+    long st_l = 0;
+    long st_c = 0;
+    long long lbuf = 0;
+    for (long i = 0; i < line_sums.size(); i++)
+    {
+        lbuf += line_sums[i];
+        if (lbuf >= total_sum - lbuf)
+        {
+            st_l = i;
+            break;
+        }
+    }
+    
+    lbuf = 0;
+    for (long i = 0; i < column_sums.size(); i++)
+    {
+        lbuf += column_sums[i];
+        if (lbuf >= total_sum - lbuf)
+        {
+            st_c = i;
+            break;
+        }
+    }
+
+    long long steps = 0;
+    for (vector<sq>::iterator it = items.begin(); it != items.end(); it++)
+    {
+        steps += (labs(it->x - st_l) + labs(it->y - st_c) + 1) * 2 * it->number;
+    }
+    
+    cout << st_l + 1 << " " << st_c + 1 << endl;
+    
+    cout << steps;
+    
+    return 0;
+}
+
+//
+//  main.cpp
+//  Yacontest_ProblemD
+//
+//  Created by Nikita Kartashov on 19/10/2013.
+//  Copyright (c) 2013 Nikita Kartashov. All rights reserved.
+//
+
+#include <iostream>
+#include <cmath>
+#include <list>
+#include <vector>
+#include <utility>
+#include <cstdlib>
+
+using std::cout;
+using std::cin;
+using std::endl;
+using std::abs;
+using std::list;
+using std::pair;
+using std::vector;
+using std::labs;
+
+
+class sq
+{
+public:
+    sq(long _x, long _y, int _num) : x(_x), y(_y), number(_num) {}
+    
+    long x;
+    long y;
+    int number;
+};
+
+int main(int argc, const char * argv[])
+{
+    long m = 0, n = 0;
+    cin >> m;
+    cin >> n;
+    
+    vector<long> line_sums(m, 0);
+    vector<long> column_sums(n, 0);
+    long long total_sum = 0;
+    vector<sq> items;
+
+    
+    int buf;
+    for (long i = 0; i < m; i++)
+    {
+        for (long j = 0; j < n; j++)
+        {
+            cin >> buf;
+            if (buf != 0)
+            {
+                sq newItem(i, j, buf);
+                items.push_back(newItem);
+                line_sums[i] += buf;
+                column_sums[j] += buf;
+                total_sum += buf;
+            }
+        }
+    }
+    
+    long st_l = 0;
+    long st_c = 0;
+    long long lbuf = 0;
+    for (long i = 0; i < line_sums.size(); i++)
+    {
+        lbuf += line_sums[i];
+        if (lbuf >= total_sum - lbuf)
+        {
+            st_l = i;
+            break;
+        }
+    }
+    
+    lbuf = 0;
+    for (long i = 0; i < column_sums.size(); i++)
+    {
+        lbuf += column_sums[i];
+        if (lbuf >= total_sum - lbuf)
+        {
+            st_c = i;
+            break;
+        }
+    }
+
+    long long steps = 0;
+    for (vector<sq>::iterator it = items.begin(); it != items.end(); it++)
+    {
+        steps += (labs(it->x - st_l) + labs(it->y - st_c) + 1) * 2 * it->number;
+    }
+    
+    cout << st_l + 1 << " " << st_c + 1 << endl;
+    
+    cout << steps;
+    
+    return 0;
+}
+
+//
+//  main.cpp
+//  Yacontest_ProblemD
+//
+//  Created by Nikita Kartashov on 19/10/2013.
+//  Copyright (c) 2013 Nikita Kartashov. All rights reserved.
+//
+
+#include <iostream>
+#include <cmath>
+#include <list>
+#include <vector>
+#include <utility>
+#include <cstdlib>
+
+using std::cout;
+using std::cin;
+using std::endl;
+using std::abs;
+using std::list;
+using std::pair;
+using std::vector;
+using std::labs;
+
+
+class sq
+{
+public:
+    sq(long _x, long _y, int _num) : x(_x), y(_y), number(_num) {}
+    
+    long x;
+    long y;
+    int number;
+};
+
+int main(int argc, const char * argv[])
+{
+    long m = 0, n = 0;
+    cin >> m;
+    cin >> n;
+    
+    vector<long> line_sums(m, 0);
+    vector<long> column_sums(n, 0);
+    long long total_sum = 0;
+    vector<sq> items;
+
+    
+    int buf;
+    for (long i = 0; i < m; i++)
+    {
+        for (long j = 0; j < n; j++)
+        {
+            cin >> buf;
+            if (buf != 0)
+            {
+                sq newItem(i, j, buf);
+                items.push_back(newItem);
+                line_sums[i] += buf;
+                column_sums[j] += buf;
+                total_sum += buf;
+            }
+        }
+    }
+    
+    long st_l = 0;
+    long st_c = 0;
+    long long lbuf = 0;
+    for (long i = 0; i < line_sums.size(); i++)
+    {
+        lbuf += line_sums[i];
+        if (lbuf >= total_sum - lbuf)
+        {
+            st_l = i;
+            break;
+        }
+    }
+    
+    lbuf = 0;
+    for (long i = 0; i < column_sums.size(); i++)
+    {
+        lbuf += column_sums[i];
+        if (lbuf >= total_sum - lbuf)
+        {
+            st_c = i;
+            break;
+        }
+    }
+
+    long long steps = 0;
+    for (vector<sq>::iterator it = items.begin(); it != items.end(); it++)
+    {
+        steps += (labs(it->x - st_l) + labs(it->y - st_c) + 1) * 2 * it->number;
+    }
+    
+    cout << st_l + 1 << " " << st_c + 1 << endl;
+    
+    cout << steps;
+    
+    return 0;
+}
+
+//
+//  main.cpp
+//  Yacontest_ProblemD
+//
+//  Created by Nikita Kartashov on 19/10/2013.
+//  Copyright (c) 2013 Nikita Kartashov. All rights reserved.
+//
+
+#include <iostream>
+#include <cmath>
+#include <list>
+#include <vector>
+#include <utility>
+#include <cstdlib>
+
+using std::cout;
+using std::cin;
+using std::endl;
+using std::abs;
+using std::list;
+using std::pair;
+using std::vector;
+using std::labs;
+
+
+class sq
+{
+public:
+    sq(long _x, long _y, int _num) : x(_x), y(_y), number(_num) {}
+    
+    long x;
+    long y;
+    int number;
+};
+
+int main(int argc, const char * argv[])
+{
+    long m = 0, n = 0;
+    cin >> m;
+    cin >> n;
+    
+    vector<long> line_sums(m, 0);
+    vector<long> column_sums(n, 0);
+    long long total_sum = 0;
+    vector<sq> items;
+
+    
+    int buf;
+    for (long i = 0; i < m; i++)
+    {
+        for (long j = 0; j < n; j++)
+        {
+            cin >> buf;
+            if (buf != 0)
+            {
+                sq newItem(i, j, buf);
+                items.push_back(newItem);
+                line_sums[i] += buf;
+                column_sums[j] += buf;
+                total_sum += buf;
+            }
+        }
+    }
+    
+    long st_l = 0;
+    long st_c = 0;
+    long long lbuf = 0;
+    for (long i = 0; i < line_sums.size(); i++)
+    {
+        lbuf += line_sums[i];
+        if (lbuf >= total_sum - lbuf)
+        {
+            st_l = i;
+            break;
+        }
+    }
+    
+    lbuf = 0;
+    for (long i = 0; i < column_sums.size(); i++)
+    {
+        lbuf += column_sums[i];
+        if (lbuf >= total_sum - lbuf)
+        {
+            st_c = i;
+            break;
+        }
+    }
+
+    long long steps = 0;
+    for (vector<sq>::iterator it = items.begin(); it != items.end(); it++)
+    {
+        steps += (labs(it->x - st_l) + labs(it->y - st_c) + 1) * 2 * it->number;
+    }
+    
+    cout << st_l + 1 << " " << st_c + 1 << endl;
+    
+    cout << steps;
+    
+    return 0;
+}
+
+//
+//  main.cpp
+//  Yacontest_ProblemD
+//
+//  Created by Nikita Kartashov on 19/10/2013.
+//  Copyright (c) 2013 Nikita Kartashov. All rights reserved.
+//
+
+#include <iostream>
+#include <cmath>
+#include <list>
+#include <vector>
+#include <utility>
+#include <cstdlib>
+
+using std::cout;
+using std::cin;
+using std::endl;
+using std::abs;
+using std::list;
+using std::pair;
+using std::vector;
+using std::labs;
+
+
+class sq
+{
+public:
+    sq(long _x, long _y, int _num) : x(_x), y(_y), number(_num) {}
+    
+    long x;
+    long y;
+    int number;
+};
+
+int main(int argc, const char * argv[])
+{
+    long m = 0, n = 0;
+    cin >> m;
+    cin >> n;
+    
+    vector<long> line_sums(m, 0);
+    vector<long> column_sums(n, 0);
+    long long total_sum = 0;
+    vector<sq> items;
+
+    
+    int buf;
+    for (long i = 0; i < m; i++)
+    {
+        for (long j = 0; j < n; j++)
+        {
+            cin >> buf;
+            if (buf != 0)
+            {
+                sq newItem(i, j, buf);
+                items.push_back(newItem);
+                line_sums[i] += buf;
+                column_sums[j] += buf;
+                total_sum += buf;
+            }
+        }
+    }
+    
+    long st_l = 0;
+    long st_c = 0;
+    long long lbuf = 0;
+    for (long i = 0; i < line_sums.size(); i++)
+    {
+        lbuf += line_sums[i];
+        if (lbuf >= total_sum - lbuf)
+        {
+            st_l = i;
+            break;
+        }
+    }
+    
+    lbuf = 0;
+    for (long i = 0; i < column_sums.size(); i++)
+    {
+        lbuf += column_sums[i];
+        if (lbuf >= total_sum - lbuf)
+        {
+            st_c = i;
+            break;
+        }
+    }
+
+    long long steps = 0;
+    for (vector<sq>::iterator it = items.begin(); it != items.end(); it++)
+    {
+        steps += (labs(it->x - st_l) + labs(it->y - st_c) + 1) * 2 * it->number;
+    }
+    
+    cout << st_l + 1 << " " << st_c + 1 << endl;
+    
+    cout << steps;
+    
+    return 0;
+}
+
+//
+//  main.cpp
+//  Yacontest_ProblemD
+//
+//  Created by Nikita Kartashov on 19/10/2013.
+//  Copyright (c) 2013 Nikita Kartashov. All rights reserved.
+//
+
+#include <iostream>
+#include <cmath>
+#include <list>
+#include <vector>
+#include <utility>
+#include <cstdlib>
+
+using std::cout;
+using std::cin;
+using std::endl;
+using std::abs;
+using std::list;
+using std::pair;
+using std::vector;
+using std::labs;
+
+
+class sq
+{
+public:
+    sq(long _x, long _y, int _num) : x(_x), y(_y), number(_num) {}
+    
+    long x;
+    long y;
+    int number;
+};
+
+int main(int argc, const char * argv[])
+{
+    long m = 0, n = 0;
+    cin >> m;
+    cin >> n;
+    
+    vector<long> line_sums(m, 0);
+    vector<long> column_sums(n, 0);
+    long long total_sum = 0;
+    vector<sq> items;
+
+    
+    int buf;
+    for (long i = 0; i < m; i++)
+    {
+        for (long j = 0; j < n; j++)
+        {
+            cin >> buf;
+            if (buf != 0)
+            {
+                sq newItem(i, j, buf);
+                items.push_back(newItem);
+                line_sums[i] += buf;
+                column_sums[j] += buf;
+                total_sum += buf;
+            }
+        }
+    }
+    
+    long st_l = 0;
+    long st_c = 0;
+    long long lbuf = 0;
+    for (long i = 0; i < line_sums.size(); i++)
+    {
+        lbuf += line_sums[i];
+        if (lbuf >= total_sum - lbuf)
+        {
+            st_l = i;
+            break;
+        }
+    }
+    
+    lbuf = 0;
+    for (long i = 0; i < column_sums.size(); i++)
+    {
+        lbuf += column_sums[i];
+        if (lbuf >= total_sum - lbuf)
+        {
+            st_c = i;
+            break;
+        }
+    }
+
+    long long steps = 0;
+    for (vector<sq>::iterator it = items.begin(); it != items.end(); it++)
+    {
+        steps += (labs(it->x - st_l) + labs(it->y - st_c) + 1) * 2 * it->number;
+    }
+    
+    cout << st_l + 1 << " " << st_c + 1 << endl;
+    
+    cout << steps;
+    
+    return 0;
+}
+
+//
+//  main.cpp
+//  Yacontest_ProblemD
+//
+//  Created by Nikita Kartashov on 19/10/2013.
+//  Copyright (c) 2013 Nikita Kartashov. All rights reserved.
+//
+
+#include <iostream>
+#include <cmath>
+#include <list>
+#include <vector>
+#include <utility>
+#include <cstdlib>
+
+using std::cout;
+using std::cin;
+using std::endl;
+using std::abs;
+using std::list;
+using std::pair;
+using std::vector;
+using std::labs;
+
+
+class sq
+{
+public:
+    sq(long _x, long _y, int _num) : x(_x), y(_y), number(_num) {}
+    
+    long x;
+    long y;
+    int number;
+};
+
+int main(int argc, const char * argv[])
+{
+    long m = 0, n = 0;
+    cin >> m;
+    cin >> n;
+    
+    vector<long> line_sums(m, 0);
+    vector<long> column_sums(n, 0);
+    long long total_sum = 0;
+    vector<sq> items;
+
+    
+    int buf;
+    for (long i = 0; i < m; i++)
+    {
+        for (long j = 0; j < n; j++)
+        {
+            cin >> buf;
+            if (buf != 0)
+            {
+                sq newItem(i, j, buf);
+                items.push_back(newItem);
+                line_sums[i] += buf;
+                column_sums[j] += buf;
+                total_sum += buf;
+            }
+        }
+    }
+    
+    long st_l = 0;
+    long st_c = 0;
+    long long lbuf = 0;
+    for (long i = 0; i < line_sums.size(); i++)
+    {
+        lbuf += line_sums[i];
+        if (lbuf >= total_sum - lbuf)
+        {
+            st_l = i;
+            break;
+        }
+    }
+    
+    lbuf = 0;
+    for (long i = 0; i < column_sums.size(); i++)
+    {
+        lbuf += column_sums[i];
+        if (lbuf >= total_sum - lbuf)
+        {
+            st_c = i;
+            break;
+        }
+    }
+
+    long long steps = 0;
+    for (vector<sq>::iterator it = items.begin(); it != items.end(); it++)
+    {
+        steps += (labs(it->x - st_l) + labs(it->y - st_c) + 1) * 2 * it->number;
+    }
+    
+    cout << st_l + 1 << " " << st_c + 1 << endl;
+    
+    cout << steps;
+    
+    return 0;
+}
+
+//
+//  main.cpp
+//  Yacontest_ProblemD
+//
+//  Created by Nikita Kartashov on 19/10/2013.
+//  Copyright (c) 2013 Nikita Kartashov. All rights reserved.
+//
+
+#include <iostream>
+#include <cmath>
+#include <list>
+#include <vector>
+#include <utility>
+#include <cstdlib>
+
+using std::cout;
+using std::cin;
+using std::endl;
+using std::abs;
+using std::list;
+using std::pair;
+using std::vector;
+using std::labs;
+
+
+class sq
+{
+public:
+    sq(long _x, long _y, int _num) : x(_x), y(_y), number(_num) {}
+    
+    long x;
+    long y;
+    int number;
+};
+
+int main(int argc, const char * argv[])
+{
+    long m = 0, n = 0;
+    cin >> m;
+    cin >> n;
+    
+    vector<long> line_sums(m, 0);
+    vector<long> column_sums(n, 0);
+    long long total_sum = 0;
+    vector<sq> items;
+
+    
+    int buf;
+    for (long i = 0; i < m; i++)
+    {
+        for (long j = 0; j < n; j++)
+        {
+            cin >> buf;
+            if (buf != 0)
+            {
+                sq newItem(i, j, buf);
+                items.push_back(newItem);
+                line_sums[i] += buf;
+                column_sums[j] += buf;
+                total_sum += buf;
+            }
+        }
+    }
+    
+    long st_l = 0;
+    long st_c = 0;
+    long long lbuf = 0;
+    for (long i = 0; i < line_sums.size(); i++)
+    {
+        lbuf += line_sums[i];
+        if (lbuf >= total_sum - lbuf)
+        {
+            st_l = i;
+            break;
+        }
+    }
+    
+    lbuf = 0;
+    for (long i = 0; i < column_sums.size(); i++)
+    {
+        lbuf += column_sums[i];
+        if (lbuf >= total_sum - lbuf)
+        {
+            st_c = i;
+            break;
+        }
+    }
+
+    long long steps = 0;
+    for (vector<sq>::iterator it = items.begin(); it != items.end(); it++)
+    {
+        steps += (labs(it->x - st_l) + labs(it->y - st_c) + 1) * 2 * it->number;
+    }
+    
+    cout << st_l + 1 << " " << st_c + 1 << endl;
+    
+    cout << steps;
+    
+    return 0;
+}
+
+//
+//  main.cpp
+//  Yacontest_ProblemD
+//
+//  Created by Nikita Kartashov on 19/10/2013.
+//  Copyright (c) 2013 Nikita Kartashov. All rights reserved.
+//
+
+#include <iostream>
+#include <cmath>
+#include <list>
+#include <vector>
+#include <utility>
+#include <cstdlib>
+
+using std::cout;
+using std::cin;
+using std::endl;
+using std::abs;
+using std::list;
+using std::pair;
+using std::vector;
+using std::labs;
+
+
+class sq
+{
+public:
+    sq(long _x, long _y, int _num) : x(_x), y(_y), number(_num) {}
+    
+    long x;
+    long y;
+    int number;
+};
+
+int main(int argc, const char * argv[])
+{
+    long m = 0, n = 0;
+    cin >> m;
+    cin >> n;
+    
+    vector<long> line_sums(m, 0);
+    vector<long> column_sums(n, 0);
+    long long total_sum = 0;
+    vector<sq> items;
+
+    
+    int buf;
+    for (long i = 0; i < m; i++)
+    {
+        for (long j = 0; j < n; j++)
+        {
+            cin >> buf;
+            if (buf != 0)
+            {
+                sq newItem(i, j, buf);
+                items.push_back(newItem);
+                line_sums[i] += buf;
+                column_sums[j] += buf;
+                total_sum += buf;
+            }
+        }
+    }
+    
+    long st_l = 0;
+    long st_c = 0;
+    long long lbuf = 0;
+    for (long i = 0; i < line_sums.size(); i++)
+    {
+        lbuf += line_sums[i];
+        if (lbuf >= total_sum - lbuf)
+        {
+            st_l = i;
+            break;
+        }
+    }
+    
+    lbuf = 0;
+    for (long i = 0; i < column_sums.size(); i++)
+    {
+        lbuf += column_sums[i];
+        if (lbuf >= total_sum - lbuf)
+        {
+            st_c = i;
+            break;
+        }
+    }
+
+    long long steps = 0;
+    for (vector<sq>::iterator it = items.begin(); it != items.end(); it++)
+    {
+        steps += (labs(it->x - st_l) + labs(it->y - st_c) + 1) * 2 * it->number;
+    }
+    
+    cout << st_l + 1 << " " << st_c + 1 << endl;
+    
+    cout << steps;
+    
+    return 0;
+}
+
+//
+//  main.cpp
+//  Yacontest_ProblemD
+//
+//  Created by Nikita Kartashov on 19/10/2013.
+//  Copyright (c) 2013 Nikita Kartashov. All rights reserved.
+//
+
+#include <iostream>
+#include <cmath>
+#include <list>
+#include <vector>
+#include <utility>
+#include <cstdlib>
+
+using std::cout;
+using std::cin;
+using std::endl;
+using std::abs;
+using std::list;
+using std::pair;
+using std::vector;
+using std::labs;
+
+
+class sq
+{
+public:
+    sq(long _x, long _y, int _num) : x(_x), y(_y), number(_num) {}
+    
+    long x;
+    long y;
+    int number;
+};
+
+int main(int argc, const char * argv[])
+{
+    long m = 0, n = 0;
+    cin >> m;
+    cin >> n;
+    
+    vector<long> line_sums(m, 0);
+    vector<long> column_sums(n, 0);
+    long long total_sum = 0;
+    vector<sq> items;
+
+    
+    int buf;
+    for (long i = 0; i < m; i++)
+    {
+        for (long j = 0; j < n; j++)
+        {
+            cin >> buf;
+            if (buf != 0)
+            {
+                sq newItem(i, j, buf);
+                items.push_back(newItem);
+                line_sums[i] += buf;
+                column_sums[j] += buf;
+                total_sum += buf;
+            }
+        }
+    }
+    
+    long st_l = 0;
+    long st_c = 0;
+    long long lbuf = 0;
+    for (long i = 0; i < line_sums.size(); i++)
+    {
+        lbuf += line_sums[i];
+        if (lbuf >= total_sum - lbuf)
+        {
+            st_l = i;
+            break;
+        }
+    }
+    
+    lbuf = 0;
+    for (long i = 0; i < column_sums.size(); i++)
+    {
+        lbuf += column_sums[i];
+        if (lbuf >= total_sum - lbuf)
+        {
+            st_c = i;
+            break;
+        }
+    }
+
+    long long steps = 0;
+    for (vector<sq>::iterator it = items.begin(); it != items.end(); it++)
+    {
+        steps += (labs(it->x - st_l) + labs(it->y - st_c) + 1) * 2 * it->number;
+    }
+    
+    cout << st_l + 1 << " " << st_c + 1 << endl;
+    
+    cout << steps;
+    
+    return 0;
+}
+
