@@ -23,8 +23,8 @@
 #include "ByteBuffer.h"
 
 
-using std::ofstream;
-using std::ifstream;
+using std::ostream;
+using std::istream;
 using std::string;
 using std::vector;
 using std::priority_queue;
@@ -37,7 +37,7 @@ using std::ios;
 class HuffmanTreeCoder: public HuffmanCoderDecoderBase
 {
 public:
-    HuffmanTreeCoder(ifstream*, ofstream*);
+    HuffmanTreeCoder(istream*, ostream*);
     ~HuffmanTreeCoder() {}
     
     void Compress();

@@ -21,14 +21,14 @@
 
 using std::string;
 using std::vector;
-using std::ifstream;
-using std::ofstream;
+using std::istream;
+using std::ostream;
 using std::ios;
 
 class HuffmanTreeDecoder: public HuffmanCoderDecoderBase
 {
 public:
-    HuffmanTreeDecoder(ifstream*, ofstream*);
+    HuffmanTreeDecoder(istream*, ostream*);
     ~HuffmanTreeDecoder() {}
     
     void Decompress();

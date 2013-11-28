@@ -16,21 +16,21 @@
 #include "HuffmanTree.h"
 
 using std::string;
-using std::ifstream;
-using std::ofstream;
+using std::istream;
+using std::ostream;
 using std::ios;
 
 class HuffmanCoderDecoderBase
 {
 public:
-    HuffmanCoderDecoderBase(ifstream*, ofstream*);
+    HuffmanCoderDecoderBase(istream*, ostream*);
     ~HuffmanCoderDecoderBase();
     
 protected:
     void setReaderToBeginning();
     
-    ifstream* m_input_stream;
-    ofstream* m_output_stream;
+    istream* m_input_stream;
+    ostream* m_output_stream;
     
     HuffmanTree* m_tree;
     vector<long> m_symbol_frequencies;

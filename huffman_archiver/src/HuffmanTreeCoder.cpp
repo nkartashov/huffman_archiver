@@ -9,7 +9,7 @@
 #include "HuffmanTreeCoder.h"
 
 
-HuffmanTreeCoder::HuffmanTreeCoder(ifstream* input_stream, ofstream* output_stream):
+HuffmanTreeCoder::HuffmanTreeCoder(istream* input_stream, ostream* output_stream):
 HuffmanCoderDecoderBase(input_stream, output_stream),
 m_symbol_codes(vector<BitCode>())
 {
@@ -19,7 +19,7 @@ m_symbol_codes(vector<BitCode>())
 
 long HuffmanTreeCoder::CalculateNumberOfSymbols()
 {
-    m_input_stream->seekg(0, ifstream::end);
+    m_input_stream->seekg(0, istream::end);
     return m_input_stream->tellg();
 }
 

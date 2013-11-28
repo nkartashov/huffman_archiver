@@ -7,7 +7,10 @@
 
 using std::string;
 using std::cout;
-using std::endl;
+using std::endl;\
+
+using std::ifstream;
+using std::ofstream;
 
 
 
@@ -75,12 +78,12 @@ int main(int argc, char** argv) {
         return 1;
     }
 
-    in->seekg(0, ifstream::end);
+    in->seekg(0, istream::end);
     if (in->tellg() == 0)
     {
         work_mode = kInputFileEmpty;
     }
-    in->seekg(0, ifstream::beg);
+    in->seekg(0, istream::beg);
     
     switch (work_mode)
     {

@@ -8,8 +8,8 @@
 
 #include "HuffmanCoderDecoderBase.h"
 
-HuffmanCoderDecoderBase::HuffmanCoderDecoderBase(ifstream* input_stream,
-                                                 ofstream* output_stream):
+HuffmanCoderDecoderBase::HuffmanCoderDecoderBase(istream* input_stream,
+                                                 ostream* output_stream):
 m_input_stream(input_stream),
 m_output_stream(output_stream),
 m_tree(new HuffmanTree()),
@@ -27,5 +27,5 @@ HuffmanCoderDecoderBase::~HuffmanCoderDecoderBase()
 void HuffmanCoderDecoderBase::setReaderToBeginning()
 {
     m_input_stream->clear();
-    m_input_stream->seekg(0, ifstream::beg);
+    m_input_stream->seekg(0, istream::beg);
 }
