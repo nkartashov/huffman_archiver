@@ -19,8 +19,6 @@ void HuffmanTreeDecoder::Decompress()
     ReadHeader();
     m_tree->BuildHuffmanTree(m_symbol_frequencies);
     DecodeSymbols();
-    
-    //close();
 }
 
 void HuffmanTreeDecoder::ReadHeader()

@@ -28,9 +28,3 @@ void HuffmanCoderDecoderBase::setReaderToBeginning()
     m_input_stream->clear();
     m_input_stream->seekg(0, ifstream::beg);
 }
-
-void HuffmanCoderDecoderBase::close()
-{
-    m_input_stream->close();
-    m_output_stream->close();
-}

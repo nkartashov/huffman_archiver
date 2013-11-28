@@ -28,7 +28,6 @@ public:
     
 protected:
     void setReaderToBeginning();
-    void close();
     
     ifstream* m_input_stream;
     ofstream* m_output_stream;

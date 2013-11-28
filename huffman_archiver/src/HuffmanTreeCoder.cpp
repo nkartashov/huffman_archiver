@@ -30,8 +30,6 @@ void HuffmanTreeCoder::Compress()
     setReaderToBeginning();
     WriteHeader();
     EncodeSymbols();
-    
-    //close();
 }
 
 void HuffmanTreeCoder::CalculateSymbolFrequencies()
