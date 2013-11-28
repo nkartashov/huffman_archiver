@@ -21,6 +21,7 @@
 #include "HuffmanTree.h"
 #include "HuffmanTreeNodePriorityComparer.h"
 #include "ByteBuffer.h"
+#include "BitWriter.h"
 
 
 using std::ostream;
@@ -29,8 +30,6 @@ using std::string;
 using std::vector;
 using std::priority_queue;
 using std::ios;
-
-
 
 
 
@@ -52,7 +51,6 @@ private:
     void SetSymbolCodes();
     void EncodeSymbols();
     void WriteHeader();
-    void WriteLong(long);
     
     vector<BitCode> m_symbol_codes;
 };

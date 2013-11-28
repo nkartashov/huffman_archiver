@@ -528,11 +528,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "huffman_archiver/src/HuffmanTreeCoder.cpp"
-            timestampString = "407364048.106278"
+            timestampString = "407373952.098151"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "HuffmanTreeCoder::CalculateSymbolFrequencies()"
             landmarkType = "5">
          </BreakpointContent>
@@ -544,11 +544,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "huffman_archiver/src/HuffmanTreeCoder.cpp"
-            timestampString = "407364048.106278"
+            timestampString = "407373952.098151"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "HuffmanTreeCoder::CalculateSymbolFrequencies()"
             landmarkType = "5">
          </BreakpointContent>
@@ -574,11 +574,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "huffman_archiver/src/main.cpp"
-            timestampString = "407363934.276839"
+            timestampString = "407373952.098151"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115">
+            startingLineNumber = "149"
+            endingLineNumber = "149">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -602,11 +602,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "huffman_archiver/src/main.cpp"
-            timestampString = "407373488.356049"
+            timestampString = "407373952.098151"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>

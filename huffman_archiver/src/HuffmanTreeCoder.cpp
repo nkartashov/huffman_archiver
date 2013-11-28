@@ -51,19 +51,11 @@ void HuffmanTreeCoder::SetSymbolCodes()
 
 void HuffmanTreeCoder::WriteHeader()
 {
-    WriteLong(m_symbols_count);
+    BitWriter writer(m_output_stream);
+    writer.WriteLong(m_symbols_count);
     for (int i = 0; i < kMaxNumberDifferentSymbols; ++i)
     {
-        WriteLong(m_symbol_frequencies[i]);
-    }
-}
-
-void HuffmanTreeCoder::WriteLong(long value)
-{
-    long max_char = 0xFF;
-    for (int i = 0; i < 4; ++i)
-    {
-        m_output_stream->put((max_char << (i * kBitsInByte) & value) >> (i * kBitsInByte));
+        writer.WriteLong(m_symbol_frequencies[i]);
     }
 }
 
@@ -72,20 +64,13 @@ void HuffmanTreeCoder::EncodeSymbols()
     ByteBuffer byte_buffer;
     uchar buffer = 0;
     BitCode symbol_code;
-    int test = 0;
+    BitWriter writer(m_output_stream);
     for (long i = 0; i < m_symbols_count; i++)
     {
         buffer = m_input_stream->get();
         symbol_code = m_symbol_codes[buffer];
-        for (size_t j = 0; j < symbol_code.size(); ++j)
-        {
-            if (!byte_buffer.HasNext())
-            {
-                test = (int) byte_buffer.Flush();
-                m_output_stream->put((char) test);
-            }
-            byte_buffer.SetBit(symbol_code[j]);
-        }
+        writer.WriteBitCode(symbol_code);
     }
-    m_output_stream->put(byte_buffer.Flush());
+    //To output the last byte
+    writer.Flush();
 }
