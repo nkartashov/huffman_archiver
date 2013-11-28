@@ -20,7 +20,8 @@ m_symbols_count(0)
 
 HuffmanCoderDecoderBase::~HuffmanCoderDecoderBase()
 {
-    delete m_tree;
+    if (m_tree)
+        delete m_tree;
 }
 
 void HuffmanCoderDecoderBase::setReaderToBeginning()

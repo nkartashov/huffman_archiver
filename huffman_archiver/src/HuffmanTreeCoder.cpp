@@ -13,14 +13,14 @@ HuffmanTreeCoder::HuffmanTreeCoder(ifstream* input_stream, ofstream* output_stre
 HuffmanCoderDecoderBase(input_stream, output_stream),
 m_symbol_codes(vector<BitCode>())
 {
-    CalculateNumberOfSymbols();
+    m_symbols_count = CalculateNumberOfSymbols();
     setReaderToBeginning();
 }
 
-void  HuffmanTreeCoder::CalculateNumberOfSymbols()
+long HuffmanTreeCoder::CalculateNumberOfSymbols()
 {
     m_input_stream->seekg(0, ifstream::end);
-    m_symbols_count = m_input_stream->tellg();
+    return m_input_stream->tellg();
 }
 
 

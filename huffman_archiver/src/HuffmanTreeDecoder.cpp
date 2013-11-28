@@ -8,6 +8,9 @@
 
 #include "HuffmanTreeDecoder.h"
 
+#include <iostream>
+
+using namespace std;
 
 HuffmanTreeDecoder::HuffmanTreeDecoder(ifstream* input_stream, ofstream* output_stream):
 HuffmanCoderDecoderBase(input_stream, output_stream)
@@ -16,6 +19,13 @@ HuffmanCoderDecoderBase(input_stream, output_stream)
 
 void HuffmanTreeDecoder::Decompress()
 {
+    /*m_input_stream->seekg(0, ios::end);
+    long file_size = m_input_stream->tellg();
+    if (file_size == 0)
+    {
+        cout << file_size << endl;
+        return;
+    }*/
     ReadHeader();
     m_tree->BuildHuffmanTree(m_symbol_frequencies);
     DecodeSymbols();
@@ -38,7 +48,7 @@ long HuffmanTreeDecoder::ReadLong()
     for (int i = 0; i < 4; ++i)
     {
         m_input_stream->get(buf);
-        result += (static_cast<long> (buf) & max_byte)<< (i * kBitsInByte);
+        result += (static_cast<long> (buf) & max_byte) << (i * kBitsInByte);
     }
     return result;
 }

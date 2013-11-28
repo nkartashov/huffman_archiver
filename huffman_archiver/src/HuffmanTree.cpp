@@ -12,7 +12,8 @@ HuffmanTree::HuffmanTree() {}
 
 HuffmanTree::~HuffmanTree()
 {
-    DeleteTree(m_root);
+    if (m_root)
+        DeleteTree(m_root);
 }
 
 void HuffmanTree::DeleteTree(HuffmanTreeNode* node)

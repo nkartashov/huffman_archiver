@@ -47,7 +47,7 @@ private:
     HuffmanTreeCoder(HuffmanTreeCoder const&);
     HuffmanTreeCoder& operator=(HuffmanTreeCoder const&);
     
-    void CalculateNumberOfSymbols();
+    long CalculateNumberOfSymbols();
     void CalculateSymbolFrequencies();
     void SetSymbolCodes();
     void EncodeSymbols();

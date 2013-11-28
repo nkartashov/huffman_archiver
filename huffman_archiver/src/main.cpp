@@ -21,7 +21,8 @@ const string kOutputKey = "-o";
 enum Modes
 {
     kCompressionMode = 0,
-    kDecompressionMode
+    kDecompressionMode,
+    kInputFileEmpty
 };
 
 
@@ -74,6 +75,12 @@ int main(int argc, char** argv) {
         return 1;
     }
 
+    in->seekg(0, ifstream::end);
+    if (in->tellg() == 0)
+    {
+        work_mode = kInputFileEmpty;
+    }
+    in->seekg(0, ifstream::beg);
     
     switch (work_mode)
     {
@@ -87,6 +94,10 @@ int main(int argc, char** argv) {
         {
             HuffmanTreeDecoder decoder(in, out);
             decoder.Decompress();
+            break;
+        }
+        case kInputFileEmpty:
+        {
             break;
         }
         default:
