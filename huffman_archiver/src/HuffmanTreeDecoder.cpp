@@ -9,8 +9,8 @@
 #include "HuffmanTreeDecoder.h"
 
 
-HuffmanTreeDecoder::HuffmanTreeDecoder(string& inputFile, string& outputFile):
-HuffmanCoderDecoderBase(inputFile, outputFile)
+HuffmanTreeDecoder::HuffmanTreeDecoder(ifstream* input_stream, ofstream* output_stream):
+HuffmanCoderDecoderBase(input_stream, output_stream)
 {
 }
 
@@ -20,7 +20,7 @@ void HuffmanTreeDecoder::Decompress()
     m_tree->BuildHuffmanTree(m_symbol_frequencies);
     DecodeSymbols();
     
-    close();
+    //close();
 }
 
 void HuffmanTreeDecoder::ReadHeader()

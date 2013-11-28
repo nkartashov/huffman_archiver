@@ -28,7 +28,7 @@ using std::ios;
 class HuffmanTreeDecoder: public HuffmanCoderDecoderBase
 {
 public:
-    HuffmanTreeDecoder(string& inputFile, string& outputFile);
+    HuffmanTreeDecoder(ifstream*, ofstream*);
     ~HuffmanTreeDecoder() {}
     
     void Decompress();

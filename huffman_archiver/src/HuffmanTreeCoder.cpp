@@ -9,8 +9,8 @@
 #include "HuffmanTreeCoder.h"
 
 
-HuffmanTreeCoder::HuffmanTreeCoder(string& inputFile, string& outputFile):
-HuffmanCoderDecoderBase(inputFile, outputFile),
+HuffmanTreeCoder::HuffmanTreeCoder(ifstream* input_stream, ofstream* output_stream):
+HuffmanCoderDecoderBase(input_stream, output_stream),
 m_symbol_codes(vector<BitCode>())
 {
     CalculateNumberOfSymbols();
@@ -31,7 +31,7 @@ void HuffmanTreeCoder::Compress()
     WriteHeader();
     EncodeSymbols();
     
-    close();
+    //close();
 }
 
 void HuffmanTreeCoder::CalculateSymbolFrequencies()

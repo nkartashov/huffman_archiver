@@ -8,10 +8,10 @@
 
 #include "HuffmanCoderDecoderBase.h"
 
-HuffmanCoderDecoderBase::HuffmanCoderDecoderBase(string const& input_path,
-                                                 string const& output_path):
-m_input_stream(new ifstream(input_path.c_str(), ios::in | ios::binary)),
-m_output_stream(new ofstream(output_path.c_str(), ios::out | ios::binary)),
+HuffmanCoderDecoderBase::HuffmanCoderDecoderBase(ifstream* input_stream,
+                                                 ofstream* output_stream):
+m_input_stream(input_stream),
+m_output_stream(output_stream),
 m_tree(new HuffmanTree()),
 m_symbol_frequencies(vector<long>(kMaxNumberDifferentSymbols)),
 m_symbols_count(0)

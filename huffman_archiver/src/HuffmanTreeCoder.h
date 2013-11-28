@@ -37,7 +37,7 @@ using std::ios;
 class HuffmanTreeCoder: public HuffmanCoderDecoderBase
 {
 public:
-    HuffmanTreeCoder(string& inputFile, string& outputFile);
+    HuffmanTreeCoder(ifstream*, ofstream*);
     ~HuffmanTreeCoder() {}
     
     void Compress();

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 
 #include "HuffmanTreeCoder.h"
 #include "HuffmanTreeDecoder.h"
@@ -58,24 +59,30 @@ int main(int argc, char** argv) {
         ++i;
     }
     
+    ifstream* in = new ifstream(input_file_path.c_str(), ios::in | ios::binary);
+    ofstream* out = new ofstream(output_file_path.c_str(), ios::out | ios::binary);
+    
     switch (work_mode)
     {
         case kCompressionMode:
         {
-            HuffmanTreeCoder coder(input_file_path, output_file_path);
+            HuffmanTreeCoder coder(in, out);
             coder.Compress();
             break;
         }
         case kDecompressionMode:
         {
-            HuffmanTreeDecoder decoder(input_file_path, output_file_path);
+            HuffmanTreeDecoder decoder(in, out);
             decoder.Decompress();
             break;
         }
         default:
-            cout << "Something somewhere has gone horribly wrong" <<endl;
+            cout << "Something somewhere has gone horribly wrong" << endl;
             break;
     }
 
+    in->close();
+    out->close();
+    
     return 0;
 }

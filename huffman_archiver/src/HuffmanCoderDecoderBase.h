@@ -23,7 +23,7 @@ using std::ios;
 class HuffmanCoderDecoderBase
 {
 public:
-    HuffmanCoderDecoderBase(string const&, string const&);
+    HuffmanCoderDecoderBase(ifstream*, ofstream*);
     ~HuffmanCoderDecoderBase();
     
 protected:
