@@ -1,4 +1,5 @@
 #!/bin/bash
+make clean
 make
 bin/arj -i test.bin -o encodedtest.bin -c
 bin/arj -i encodedtest.bin -o result.bin -d

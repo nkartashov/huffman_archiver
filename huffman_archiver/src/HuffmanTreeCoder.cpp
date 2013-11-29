@@ -61,7 +61,6 @@ void HuffmanTreeCoder::WriteHeader()
 
 void HuffmanTreeCoder::EncodeSymbols()
 {
-    ByteBuffer byte_buffer;
     uchar buffer = 0;
     BitCode symbol_code;
     BitWriter writer(m_output_stream);

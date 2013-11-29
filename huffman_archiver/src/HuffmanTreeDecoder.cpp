@@ -26,24 +26,12 @@ void HuffmanTreeDecoder::Decompress()
 
 void HuffmanTreeDecoder::ReadHeader()
 {
-    m_symbols_count = ReadLong();
+    BitReader reader(m_input_stream);
+    m_symbols_count = reader.ReadLong();
     for (int i = 0; i < kMaxNumberDifferentSymbols; ++i)
     {
-        m_symbol_frequencies[i] = ReadLong();
+        m_symbol_frequencies[i] = reader.ReadLong();
     }
-}
-
-long HuffmanTreeDecoder::ReadLong()
-{
-    uchar max_byte = 0xFF;
-    long result = 0;
-    char buf = 0;
-    for (int i = 0; i < 4; ++i)
-    {
-        m_input_stream->get(buf);
-        result += (static_cast<long> (buf) & max_byte) << (i * kBitsInByte);
-    }
-    return result;
 }
 
 void HuffmanTreeDecoder::DecodeSymbols()
@@ -55,30 +43,21 @@ void HuffmanTreeDecoder::DecodeSymbols()
     }
     else
     {
-        uchar buffer = 0;
-        ByteBuffer byte_buffer;
-        byte_buffer.Fill(m_input_stream->get());
+        BitReader reader(m_input_stream);
+        reader.Fill();
         long decoded_symbols = 1;
         HuffmanTreeNode* node = m_tree->root();
         while (decoded_symbols <= m_symbols_count)
         {
-            if (byte_buffer.HasNext())
-            {
-                if (byte_buffer.GetBit())
-                    node = node->rightChild();
-                else
-                    node = node->leftChild();
-                if (node->isInner())
-                {
-                    m_output_stream->put(node->symbol());
-                    node = m_tree->root();
-                    ++decoded_symbols;
-                }
-            }
+            if (reader.GetBit())
+                node = node->rightChild();
             else
+                node = node->leftChild();
+            if (node->isInner())
             {
-                buffer = m_input_stream->get();
-                byte_buffer.Fill(buffer);
+                m_output_stream->put(node->symbol());
+                node = m_tree->root();
+                ++decoded_symbols;
             }
         }
     }

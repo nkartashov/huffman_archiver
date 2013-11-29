@@ -14,7 +14,6 @@
 		EC872BDB182CE17100DE0637 /* HuffmanTreeDecoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC872BD1182CE17100DE0637 /* HuffmanTreeDecoder.cpp */; };
 		EC872BDC182CE17100DE0637 /* HuffmanTreeCoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC872BD3182CE17100DE0637 /* HuffmanTreeCoder.cpp */; };
 		EC872BDD182CE17100DE0637 /* HuffmanTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC872BD5182CE17100DE0637 /* HuffmanTree.cpp */; };
-		EC872BDE182CE17100DE0637 /* ByteBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC872BD9182CE17100DE0637 /* ByteBuffer.cpp */; };
 		EC872BFD182D795B00DE0637 /* HuffmanCoderDecoderBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC872BFC182D795B00DE0637 /* HuffmanCoderDecoderBase.cpp */; };
 /* End PBXBuildFile section */
 
@@ -49,8 +48,6 @@
 		EC872BD5182CE17100DE0637 /* HuffmanTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HuffmanTree.cpp; path = src/HuffmanTree.cpp; sourceTree = "<group>"; };
 		EC872BD6182CE17100DE0637 /* Declarations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Declarations.h; path = src/Declarations.h; sourceTree = "<group>"; };
 		EC872BD7182CE17100DE0637 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = src/Constants.h; sourceTree = "<group>"; };
-		EC872BD8182CE17100DE0637 /* ByteBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ByteBuffer.h; path = src/ByteBuffer.h; sourceTree = "<group>"; };
-		EC872BD9182CE17100DE0637 /* ByteBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ByteBuffer.cpp; path = src/ByteBuffer.cpp; sourceTree = "<group>"; };
 		EC872BF8182D5A0F00DE0637 /* HuffmanCoderDecoderBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HuffmanCoderDecoderBase.h; path = src/HuffmanCoderDecoderBase.h; sourceTree = "<group>"; };
 		EC872BFC182D795B00DE0637 /* HuffmanCoderDecoderBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HuffmanCoderDecoderBase.cpp; path = src/HuffmanCoderDecoderBase.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,8 +89,6 @@
 				EC872BCF182CE17100DE0637 /* HuffmanTreeNode.h */,
 				EC872BD0182CE17100DE0637 /* HuffmanTreeDecoder.h */,
 				EC872BD1182CE17100DE0637 /* HuffmanTreeDecoder.cpp */,
-				EC4F1E3318480EEB00DAB8FB /* BitReader.cpp */,
-				EC4F1E3418480EEB00DAB8FB /* BitReader.h */,
 				EC872BD2182CE17100DE0637 /* HuffmanTreeCoder.h */,
 				EC872BD3182CE17100DE0637 /* HuffmanTreeCoder.cpp */,
 				EC872BD4182CE17100DE0637 /* HuffmanTree.h */,
@@ -102,8 +97,8 @@
 				EC872BD7182CE17100DE0637 /* Constants.h */,
 				EC4F1E3018480D5700DAB8FB /* BitWriter.h */,
 				EC4F1E3118480D5700DAB8FB /* BitWriter.cpp */,
-				EC872BD8182CE17100DE0637 /* ByteBuffer.h */,
-				EC872BD9182CE17100DE0637 /* ByteBuffer.cpp */,
+				EC4F1E3418480EEB00DAB8FB /* BitReader.h */,
+				EC4F1E3318480EEB00DAB8FB /* BitReader.cpp */,
 				EC4E0494182BD8C200816B1C /* huffman_archiver.1 */,
 			);
 			path = huffman_archiver;
@@ -164,7 +159,6 @@
 				EC4F1E3218480D5700DAB8FB /* BitWriter.cpp in Sources */,
 				EC872BDA182CE17100DE0637 /* main.cpp in Sources */,
 				EC872BDD182CE17100DE0637 /* HuffmanTree.cpp in Sources */,
-				EC872BDE182CE17100DE0637 /* ByteBuffer.cpp in Sources */,
 				EC872BDB182CE17100DE0637 /* HuffmanTreeDecoder.cpp in Sources */,
 				EC872BDC182CE17100DE0637 /* HuffmanTreeCoder.cpp in Sources */,
 				EC872BFD182D795B00DE0637 /* HuffmanCoderDecoderBase.cpp in Sources */,

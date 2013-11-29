@@ -17,7 +17,7 @@
 #include "Constants.h"
 #include "HuffmanCoderDecoderBase.h"
 #include "HuffmanTree.h"
-#include "ByteBuffer.h"
+#include "BitReader.h"
 
 using std::string;
 using std::vector;
@@ -38,7 +38,6 @@ private:
     HuffmanTreeDecoder& operator=(HuffmanTreeDecoder const&);
     
     void ReadHeader();
-    long ReadLong();
     void DecodeSymbols();
 };
 

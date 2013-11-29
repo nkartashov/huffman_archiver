@@ -20,7 +20,6 @@
 #include "HuffmanCoderDecoderBase.h"
 #include "HuffmanTree.h"
 #include "HuffmanTreeNodePriorityComparer.h"
-#include "ByteBuffer.h"
 #include "BitWriter.h"
 
 
