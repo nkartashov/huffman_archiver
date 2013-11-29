@@ -20,16 +20,6 @@ BitWriter::~BitWriter()
     delete m_byte;
 }
 
-void BitWriter::SetBit(bool bit)
-{
-    //*m_byte = (*m_byte & (~(1 << m_current_position))) | (bit << m_current_position);
-    if (bit)
-        *m_byte = *m_byte | (static_cast<int> (bit) << m_current_position++);
-    else
-        *m_byte = *m_byte & ~(1 << m_current_position++);
-
-}
-
 void BitWriter::Flush()
 {
     m_current_position = 0;
@@ -55,4 +45,13 @@ void BitWriter::WriteLong(long value)
     {
         m_output_stream->put((max_char << (i * kBitsInByte) & value) >> (i * kBitsInByte));
     }
+}
+
+void BitWriter::SetBit(bool bit)
+{
+    if (bit)
+        *m_byte = *m_byte | (static_cast<int> (bit) << m_current_position++);
+    else
+        *m_byte = *m_byte & ~(1 << m_current_position++);
+    
 }

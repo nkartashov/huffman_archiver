@@ -23,15 +23,16 @@ public:
     
     ~BitReader();
     
+    void Fill();
+    
     bool GetBit();
     long ReadLong();
-    bool HasNext() {return m_current_position < kBitsInByte;}
-    
-    void Fill();
     
 private:
     BitReader(BitReader const&);
     BitReader const& operator=(BitReader const&);
+    
+    bool HasNext() {return m_current_position < kBitsInByte;}
     
     uchar* m_byte;
     int m_current_position;

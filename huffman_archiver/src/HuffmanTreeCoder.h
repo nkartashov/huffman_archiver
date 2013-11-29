@@ -9,7 +9,7 @@
 #ifndef huffman_archiver_HuffmanTreeCoder_h
 #define huffman_archiver_HuffmanTreeCoder_h
 
-#include <fstream>
+#include <iostream>
 #include <string>
 #include <vector>
 #include <queue>
@@ -17,7 +17,6 @@
 
 #include "Declarations.h"
 #include "Constants.h"
-#include "HuffmanCoderDecoderBase.h"
 #include "HuffmanTree.h"
 #include "HuffmanTreeNodePriorityComparer.h"
 #include "BitWriter.h"
@@ -32,11 +31,11 @@ using std::ios;
 
 
 
-class HuffmanTreeCoder: public HuffmanCoderDecoderBase
+class HuffmanTreeCoder
 {
 public:
     HuffmanTreeCoder(istream*, ostream*);
-    ~HuffmanTreeCoder() {}
+    ~HuffmanTreeCoder();
     
     void Compress();
 
@@ -45,11 +44,20 @@ private:
     HuffmanTreeCoder(HuffmanTreeCoder const&);
     HuffmanTreeCoder& operator=(HuffmanTreeCoder const&);
     
+    void setReaderToBeginning();
+    
     long CalculateNumberOfSymbols();
     void CalculateSymbolFrequencies();
     void SetSymbolCodes();
     void EncodeSymbols();
     void WriteHeader();
+    
+    istream* m_input_stream;
+    ostream* m_output_stream;
+    
+    HuffmanTree* m_tree;
+    vector<long> m_symbol_frequencies;
+    long m_symbols_count;
     
     vector<BitCode> m_symbol_codes;
 };

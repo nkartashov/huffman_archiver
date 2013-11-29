@@ -13,8 +13,24 @@
 using namespace std;
 
 HuffmanTreeDecoder::HuffmanTreeDecoder(istream* input_stream, ostream* output_stream):
-HuffmanCoderDecoderBase(input_stream, output_stream)
+m_input_stream(input_stream),
+m_output_stream(output_stream),
+m_tree(new HuffmanTree()),
+m_symbol_frequencies(vector<long>(kMaxNumberDifferentSymbols)),
+m_symbols_count(0)
 {
+}
+
+HuffmanTreeDecoder::~HuffmanTreeDecoder()
+{
+    if (m_tree)
+        delete m_tree;
+}
+
+void HuffmanTreeDecoder::setReaderToBeginning()
+{
+    m_input_stream->clear();
+    m_input_stream->seekg(0, istream::beg);
 }
 
 void HuffmanTreeDecoder::Decompress()

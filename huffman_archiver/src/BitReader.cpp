@@ -20,7 +20,6 @@ BitReader::~BitReader()
     delete m_byte;
 }
 
-
 bool BitReader::GetBit()
 {
     if (!HasNext())

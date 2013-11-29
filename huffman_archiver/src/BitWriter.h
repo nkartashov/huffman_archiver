@@ -22,8 +22,6 @@ public:
     BitWriter(ostream*);
     ~BitWriter();
     
-    void SetBit(bool bit);
-    bool HasNext() {return m_current_position < kBitsInByte;}
     void Flush();
     void WriteBitCode(BitCode code);
     void WriteLong(long value);
@@ -31,6 +29,9 @@ public:
 private:
     BitWriter(BitWriter const&);
     BitWriter const& operator=(BitWriter const&);
+    
+    bool HasNext() {return m_current_position < kBitsInByte;}
+    void SetBit(bool bit);
     
     uchar* m_byte;
     int m_current_position;

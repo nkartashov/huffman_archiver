@@ -7,7 +7,7 @@
 
 using std::string;
 using std::cout;
-using std::endl;\
+using std::endl;
 
 using std::ifstream;
 using std::ofstream;
@@ -30,7 +30,8 @@ enum Modes
 
 
 
-int main(int argc, char** argv) {    
+int main(int argc, char** argv)
+{
     Modes work_mode;
     
     if(argc != 6)
@@ -63,39 +64,39 @@ int main(int argc, char** argv) {
         ++i;
     }
     
-    ifstream* in = new ifstream(input_file_path.c_str(), ios::in | ios::binary);
-    ofstream* out = new ofstream(output_file_path.c_str(), ios::out | ios::binary);
+    ifstream* input_stream = new ifstream(input_file_path.c_str(), ios::in | ios::binary);
+    ofstream* output_stream = new ofstream(output_file_path.c_str(), ios::out | ios::binary);
     
-    if (!in->is_open())
+    if (!input_stream->is_open())
     {
         cout << "Unable to open input file " << input_file_path << endl;
         return 1;
     }
     
-    if (!out->is_open())
+    if (!output_stream->is_open())
     {
         cout << "Unable to open output file " << output_file_path << endl;
         return 1;
     }
 
-    in->seekg(0, istream::end);
-    if (in->tellg() == 0)
+    input_stream->seekg(0, istream::end);
+    if (input_stream->tellg() == 0)
     {
         work_mode = kInputFileEmpty;
     }
-    in->seekg(0, istream::beg);
+    input_stream->seekg(0, istream::beg);
     
     switch (work_mode)
     {
         case kCompressionMode:
         {
-            HuffmanTreeCoder coder(in, out);
+            HuffmanTreeCoder coder(input_stream, output_stream);
             coder.Compress();
             break;
         }
         case kDecompressionMode:
         {
-            HuffmanTreeDecoder decoder(in, out);
+            HuffmanTreeDecoder decoder(input_stream, output_stream);
             decoder.Decompress();
             break;
         }
@@ -108,8 +109,8 @@ int main(int argc, char** argv) {
             break;
     }
 
-    in->close();
-    out->close();
+    input_stream->close();
+    output_stream->close();
     
     return 0;
 }

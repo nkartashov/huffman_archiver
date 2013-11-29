@@ -10,11 +10,27 @@
 
 
 HuffmanTreeCoder::HuffmanTreeCoder(istream* input_stream, ostream* output_stream):
-HuffmanCoderDecoderBase(input_stream, output_stream),
+m_input_stream(input_stream),
+m_output_stream(output_stream),
+m_tree(new HuffmanTree()),
+m_symbol_frequencies(vector<long>(kMaxNumberDifferentSymbols)),
+m_symbols_count(0),
 m_symbol_codes(vector<BitCode>())
 {
     m_symbols_count = CalculateNumberOfSymbols();
     setReaderToBeginning();
+}
+
+HuffmanTreeCoder::~HuffmanTreeCoder()
+{
+    if (m_tree)
+        delete m_tree;
+}
+
+void HuffmanTreeCoder::setReaderToBeginning()
+{
+    m_input_stream->clear();
+    m_input_stream->seekg(0, istream::beg);
 }
 
 long HuffmanTreeCoder::CalculateNumberOfSymbols()
