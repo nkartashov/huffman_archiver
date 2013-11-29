@@ -17,6 +17,7 @@
 #include "Constants.h"
 #include "HuffmanTree.h"
 #include "BitReader.h"
+#include "TreeWalker.h"
 
 using std::string;
 using std::vector;

@@ -8,9 +8,6 @@
 
 #include "HuffmanTreeDecoder.h"
 
-#include <iostream>
-
-using namespace std;
 
 HuffmanTreeDecoder::HuffmanTreeDecoder(istream* input_stream, ostream* output_stream):
 m_input_stream(input_stream),
@@ -62,17 +59,14 @@ void HuffmanTreeDecoder::DecodeSymbols()
         BitReader reader(m_input_stream);
         reader.Fill();
         long decoded_symbols = 1;
-        HuffmanTreeNode* node = m_tree->root();
+        int buffer = 0;
+        TreeWalker walker(m_tree->root());
         while (decoded_symbols <= m_symbols_count)
         {
-            if (reader.GetBit())
-                node = node->rightChild();
-            else
-                node = node->leftChild();
-            if (node->isInner())
+            buffer = walker.NextBit(reader.GetBit());
+            if (buffer != -1)
             {
-                m_output_stream->put(node->symbol());
-                node = m_tree->root();
+                m_output_stream->put((uchar) buffer);
                 ++decoded_symbols;
             }
         }

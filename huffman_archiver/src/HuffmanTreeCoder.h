@@ -39,7 +39,6 @@ public:
     
     void Compress();
 
-    
 private:
     HuffmanTreeCoder(HuffmanTreeCoder const&);
     HuffmanTreeCoder& operator=(HuffmanTreeCoder const&);

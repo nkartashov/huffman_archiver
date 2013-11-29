@@ -14,6 +14,7 @@
 		EC872BDB182CE17100DE0637 /* HuffmanTreeDecoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC872BD1182CE17100DE0637 /* HuffmanTreeDecoder.cpp */; };
 		EC872BDC182CE17100DE0637 /* HuffmanTreeCoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC872BD3182CE17100DE0637 /* HuffmanTreeCoder.cpp */; };
 		EC872BDD182CE17100DE0637 /* HuffmanTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC872BD5182CE17100DE0637 /* HuffmanTree.cpp */; };
+		ECFCCC111848AD490034A36E /* TreeWalker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECFCCC101848AD490034A36E /* TreeWalker.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,6 +48,8 @@
 		EC872BD5182CE17100DE0637 /* HuffmanTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HuffmanTree.cpp; path = src/HuffmanTree.cpp; sourceTree = "<group>"; };
 		EC872BD6182CE17100DE0637 /* Declarations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Declarations.h; path = src/Declarations.h; sourceTree = "<group>"; };
 		EC872BD7182CE17100DE0637 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = src/Constants.h; sourceTree = "<group>"; };
+		ECFCCC0F1848AD490034A36E /* TreeWalker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TreeWalker.h; path = src/TreeWalker.h; sourceTree = "<group>"; };
+		ECFCCC101848AD490034A36E /* TreeWalker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TreeWalker.cpp; path = src/TreeWalker.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +82,8 @@
 		EC4E0491182BD8C200816B1C /* huffman_archiver */ = {
 			isa = PBXGroup;
 			children = (
+				ECFCCC0F1848AD490034A36E /* TreeWalker.h */,
+				ECFCCC101848AD490034A36E /* TreeWalker.cpp */,
 				EC872BCD182CE17100DE0637 /* main.cpp */,
 				EC872BCE182CE17100DE0637 /* HuffmanTreeNodePriorityComparer.h */,
 				EC872BCF182CE17100DE0637 /* HuffmanTreeNode.h */,
@@ -152,6 +157,7 @@
 			files = (
 				EC4F1E3518480EEB00DAB8FB /* BitReader.cpp in Sources */,
 				EC4F1E3218480D5700DAB8FB /* BitWriter.cpp in Sources */,
+				ECFCCC111848AD490034A36E /* TreeWalker.cpp in Sources */,
 				EC872BDA182CE17100DE0637 /* main.cpp in Sources */,
 				EC872BDD182CE17100DE0637 /* HuffmanTree.cpp in Sources */,
 				EC872BDB182CE17100DE0637 /* HuffmanTreeDecoder.cpp in Sources */,
